@@ -1,0 +1,213 @@
+:root {
+  --primary: #3b82f6;    /* Ocean Professional primary */
+  --secondary: #64748b;
+  --success: #06b6d4;
+  --error: #EF4444;
+
+  --background: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 14px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(59,130,246,0.06), transparent),
+              radial-gradient(1200px 800px at 90% 20%, rgba(100,116,139,0.06), transparent),
+              var(--background);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* App layout */
+.ocean-app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+
+.ocean-header {
+  text-align: center;
+  padding: 40px 16px 16px;
+}
+
+.ocean-title {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.2vw, 40px);
+  color: var(--text);
+}
+
+.ocean-subtitle {
+  margin: 8px 0 0;
+  color: #334155;
+  opacity: 0.85;
+}
+
+.ocean-main {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.card-surface {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+/* Status row */
+.status-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pill-primary {
+  background: rgba(59,130,246,0.12);
+  color: #1e40af;
+  border: 1px solid rgba(59,130,246,0.25);
+}
+
+.pill-success {
+  background: rgba(6,182,212,0.14);
+  color: #0e7490;
+  border: 1px solid rgba(6,182,212,0.28);
+}
+
+.pill-secondary {
+  background: rgba(100,116,139,0.14);
+  color: #334155;
+  border: 1px solid rgba(100,116,139,0.28);
+}
+
+.btn-reset {
+  appearance: none;
+  border: 0;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  color: #0f172a;
+  padding: 8px 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15,23,42,0.08);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.btn-reset:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.btn-reset:active {
+  transform: translateY(0);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin: 8px 0 12px;
+}
+
+.square {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,0.08);
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  display: grid;
+  place-items: center;
+  font-size: clamp(32px, 7.2vw, 56px);
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 100ms ease, box-shadow 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.square:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  border-color: rgba(59,130,246,0.35);
+}
+
+.square:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.square:focus-visible {
+  outline: 3px solid rgba(59,130,246,0.45);
+  outline-offset: 2px;
+}
+
+.square .mark {
+  transform: translateY(0);
+}
+
+.square-x .mark {
+  color: #1d4ed8; /* stronger blue for X */
+  text-shadow: 0 2px 6px rgba(29,78,216,0.18);
+}
+
+.square-o .mark {
+  color: #0ea5e9; /* cyan / sky for O */
+  text-shadow: 0 2px 6px rgba(14,165,233,0.18);
+}
+
+.square-highlight {
+  background: linear-gradient(180deg, rgba(6,182,212,0.18), rgba(255,255,255,0.9));
+  border-color: rgba(6,182,212,0.6);
+  box-shadow: 0 10px 24px rgba(6,182,212,0.25);
+}
+
+/* Footer */
+.ocean-footer {
+  text-align: center;
+  padding: 16px;
+}
+
+.muted {
+  opacity: 0.7;
+}
+
+.small {
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 440px) {
+  .card-surface {
+    padding: 16px;
+  }
+}

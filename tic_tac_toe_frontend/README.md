@@ -1,82 +1,34 @@
-# Lightweight React Template for KAVIA
+# Tic Tac Toe Frontend (Ocean Professional)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, lightweight React implementation of a two–player Tic Tac Toe game with accessible controls and polished UI.
 
 ## Features
+- 3x3 grid with turn-based play (X starts)
+- Winner detection and winning-line highlight
+- Draw detection (when board is full and no winner)
+- Reset button resets board and sets starting player to X
+- Accessible squares (buttons) with ARIA labels and keyboard play (Enter/Space)
+- Ocean Professional theme with subtle shadows, rounded corners, and gradients
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Run locally
+- `npm start` (port 3000 on CRA)
+- Open http://localhost:3000
 
-## Getting Started
+## Structure
+- `src/App.js` – App shell and layout
+- `src/components/Board.jsx` – Game state, rules, status, and grid
+- `src/components/Square.jsx` – Accessible cell button
+- `src/styles.css` – Theme and modern UI styling
+- `src/index.js` – CRA bootstrap (unchanged)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+- No external services or environment variables required.
+- Functional components with hooks.
+- Styling follows provided Ocean Professional palette:
+  - primary: #3b82f6
+  - secondary: #64748b
+  - success: #06b6d4
+  - error: #EF4444
+  - background: #f9fafb
+  - surface: #ffffff
+  - text: #111827

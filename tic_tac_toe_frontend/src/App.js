@@ -1,47 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import './styles.css';
+import Board from './components/Board';
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * App is the root component that renders the Tic Tac Toe game UI.
+ * It applies the Ocean Professional theme styling and sets up the layout:
+ * - Title header
+ * - Turn/status area
+ * - 3x3 Board
+ * - Result display and Reset button
+ */
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="ocean-app">
+      <header className="ocean-header" role="banner" aria-label="Tic Tac Toe">
+        <h1 className="ocean-title">Tic Tac Toe</h1>
+        <p className="ocean-subtitle">Two players • One board • Pure fun</p>
       </header>
+      <main className="ocean-main" role="main">
+        <div className="card-surface">
+          <Board />
+        </div>
+      </main>
+      <footer className="ocean-footer" role="contentinfo">
+        <span className="muted">Built with React • Ocean Professional theme</span>
+      </footer>
     </div>
   );
 }
